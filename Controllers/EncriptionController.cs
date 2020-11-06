@@ -17,7 +17,8 @@ namespace CifradoPokemon.Controllers
 		public IActionResult Post(string mensaje, string pokemon)
 		{
 			pokemon = RandomNombre.Randomizer();
-			 string mensajes = "mensaje encriptado: " + cifra.encriptar(mensaje, pokemon) + " mensaje desencriptado " + cifra.desencriptar(mensaje, pokemon);
+			string eq = EqualStrings.makeStringEqual(mensaje,pokemon);
+			string mensajes = "mensaje encriptado: " + cifra.encriptar(mensaje, eq) + " mensaje desencriptado " + cifra.desencriptar(mensaje, pokemon);
 
 			return Ok(mensajes.ToString());
 		}
